@@ -69,7 +69,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RP7-Dg-dPF"/>
-                                                    <segue destination="5vj-EW-oXD" kind="show" id="lm0-jD-H3q"/>
+                                                    <segue destination="5vj-EW-oXD" kind="show" identifier="listSegue" id="lm0-jD-H3q"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieH-QP-lxe">
@@ -122,7 +122,7 @@
         <!--List-->
         <scene sceneID="Dk9-hG-gdE">
             <objects>
-                <viewController id="owy-lA-cTN" sceneMemberID="viewController">
+                <viewController id="owy-lA-cTN" customClass="listViewController" customModule="List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wd3-a2-a2g">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,6 +140,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="owy-lA-cTN" id="ZWt-gZ-2Le"/>
+                                    <outlet property="delegate" destination="owy-lA-cTN" id="Pck-gj-EIm"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Okh-I3-fRg"/>
@@ -152,8 +156,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="List" id="M3Z-Hl-qUT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TaD-Ow-hg7"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TaD-Ow-hg7">
+                            <connections>
+                                <action selector="addTapped:" destination="owy-lA-cTN" id="neK-lh-c1w"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vsv-Fc-MnP" id="pfW-BB-9mU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9Z-hM-U0E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
